@@ -4,7 +4,7 @@ from .models import city
 
 # Create your views here.
 def weather_dashboard(request):
-    api_key = "your_api_key" # Need to hide it
+    f = open("weather_api.txt", "r")    
     weather_data = None
 
     if request.method == 'POST':
