@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>🌤️ Weather Dashboard</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if weather_data %}
+       {% if weather_data.error %}
+            <p class="error">{{weather_data.error}}</p>
+       {% else %}
+            <div class="waether-info">
+                <h2>{{weather_data.city}}</h2>
+                <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather Icon">
+                <p>🌡️ Temperature: {{weather_data.temperature}}°C </p>
+                <p>💧 Humidity: {{ weather_data.humidity }}% </p>
+                <p>🌥️ Condition: {{ weather_data.description }}</p>
+            </div>
+            {% endif %}
+        {% endif %}
+</div>
+   
+{% endblock content %}
