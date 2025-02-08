@@ -6,6 +6,24 @@ body {
     padding: 0;
 }
 
+/* Body background colors for different weather conditions */
+.sunny {
+    background-color: #ffdb5c; /* Sunny */
+}
+
+.cloudy {
+    background-color: #b0c4de; /* Cloudy */
+}
+
+.rainy {
+    background-color: #5f6368; /* Rainy */
+}
+
+.snowy {
+    background-color: #f0f8ff; /* Snowy */
+}
+
+/* Main Container */
 .container {
     width: 40%;
     margin: 50px auto;
@@ -16,7 +34,15 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #ff69b4;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+/* Weather Form */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 input {
@@ -42,22 +68,17 @@ button:hover {
     background: #3949AB;
 }
 
-.weather-info {
+/* Weather Results */
+#weather-result {
     margin-top: 20px;
-    padding: 10px;
-    background: #E3F2FD;
-    border-radius: 10px;
 }
 
-.weather-info h2 {
-    margin: 0;
+h2 {
+    color: #ff69b4;
+    font-size: 1.5em;
 }
 
-.weather-info img {
-    width: 80px;
-}
-
-.error {
-    color: red;
-    font-weight: bold;
+p {
+    font-size: 1.2em;
+    color: #333;
 }
