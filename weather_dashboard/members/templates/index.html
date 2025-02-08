@@ -14,7 +14,7 @@
        {% if weather_data.error %}
             <p class="error">{{weather_data.error}}</p>
        {% else %}
-            <div class="waether-info">
+            <div class="weather-info">
                 <h2>{{weather_data.city}}</h2>
                 <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather Icon">
                 <p>🌡️ Temperature: {{weather_data.temperature}}°C </p>
