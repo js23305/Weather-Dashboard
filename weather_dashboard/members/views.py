@@ -4,8 +4,12 @@ from .models import city
 
 # Create your views here.
 def weather_dashboard(request):
-    f = open("weather_api.txt", "r")    
-    weather_data = None
+    # Read API key securely
+    try:
+        with open("weather_api.txt", "r") as file:
+            api_key = file.read().strip()  # Read and remove any extra spaces/newlines
+    except FileNotFoundError:
+        return render(request, "weather/index.html", {"weather_data": {"error": "API key file not found!"}})
 
     if request.method == 'POST':
         city_name = request.Post.get("city")
