@@ -4,25 +4,16 @@
 
 <div class="container">
     <h1>🌤️ Weather Dashboard</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="city" placeholder="Enter city name" required>
-        <button type="submit">Search</button>
+    <form id="weather-form">
+        <input type="text" id="city" placeholder="Enter city name" required>
+        <button type="submit">Get Weather</button>
     </form>
 
-    {% if weather_data %}
-       {% if weather_data.error %}
-            <p class="error">{{weather_data.error}}</p>
-       {% else %}
-            <div class="weather-info">
-                <h2>{{weather_data.city}}</h2>
-                <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather Icon">
-                <p>🌡️ Temperature: {{weather_data.temperature}}°C </p>
-                <p>💧 Humidity: {{ weather_data.humidity }}% </p>
-                <p>🌥️ Condition: {{ weather_data.description }}</p>
-            </div>
-            {% endif %}
-        {% endif %}
+    <div id="weather-result">
+        <h2 id="city-name">City</h2>
+        <p id="temperature">Temperature</p>
+        <p id="description">Description</p>
+    </div>
 </div>
    
 {% endblock content %}
