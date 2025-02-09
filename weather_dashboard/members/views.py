@@ -9,7 +9,7 @@ def weather_dashboard(request):
         with open("weather_api.txt", "r") as file:
             api_key = file.read().strip()  # Read and remove any extra spaces/newlines
     except FileNotFoundError:
-        return render(request, "weather/index.html", {"weather_data": {"error": "API key file not found!"}})
+        return render(request, "index.html", {"weather_data": {"error": "API key file not found!"}})
 
     if request.method == 'POST':
         city_name = request.Post.get("city")
