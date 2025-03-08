@@ -28,4 +28,12 @@ def weather_dashboard(request):
         else:
             weather_data = {"error": "City not found!"}
 
-    return render(request, "weather/index.html", {"weather_data": weather_data})    
+    return render(request, "weather/index.html", {"weather_data": weather_data})  
+
+def weather_api(formData):
+    uid = formData.POST("uid")
+    city_name = formData.POST("city")
+    # Read API key securely
+    url = f'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m'
+    response = requests.post(url).json()
+

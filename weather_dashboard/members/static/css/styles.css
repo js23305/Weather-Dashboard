@@ -6,23 +6,6 @@ body {
     padding: 0;
 }
 
-/* Body background colors for different weather conditions */
-.sunny {
-    background-color: #ffdb5c; /* Sunny */
-}
-
-.cloudy {
-    background-color: #b0c4de; /* Cloudy */
-}
-
-.rainy {
-    background-color: #5f6368; /* Rainy */
-}
-
-.snowy {
-    background-color: #f0f8ff; /* Snowy */
-}
-
 /* Main Container */
 .container {
     width: 40%;
@@ -68,17 +51,3 @@ button:hover {
     background: #3949AB;
 }
 
-/* Weather Results */
-#weather-result {
-    margin-top: 20px;
-}
-
-h2 {
-    color: #ff69b4;
-    font-size: 1.5em;
-}
-
-p {
-    font-size: 1.2em;
-    color: #333;
-}

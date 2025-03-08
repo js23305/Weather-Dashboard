@@ -4,16 +4,10 @@
 
 <div class="container">
     <h1>🌤️ Weather Dashboard</h1>
-    <form id="weather-form">
-        <input type="text" id="city" placeholder="Enter city name" required>
+    <form id="weather-form" onsubmit="return weather_result()" method="post">
+        <input type="text" id="userInput" placeholder="Enter city name" required>
         <button type="submit">Get Weather</button>
     </form>
-
-    <div id="weather-result">
-        <h2 id="city-name">City</h2>
-        <p id="temperature">Temperature</p>
-        <p id="description">Description</p>
-    </div>
 </div>
    
 {% endblock content %}
