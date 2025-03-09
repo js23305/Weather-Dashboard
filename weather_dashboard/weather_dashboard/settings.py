@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+# Add your API key here
+GOOGLE_API_KEY = 'AIzaSyCzvqhwadU4iM5BPMYAFzz14_4doR8069c'
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

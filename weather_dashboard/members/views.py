@@ -1,6 +1,7 @@
 import requests
 from django.shortcuts import render
 from .models import city
+from django.conf import settings
 
 # Create your views here.
 def weather_dashboard(request):
@@ -18,13 +19,12 @@ def weather_dashboard(request):
     return render(request, "weather/index.html")
 
 def weather_api(formData):
-    uid = formData.POST("uid")
-    city_name = formData.POST("city")
+    uid = formData.POST.get("uid")
+    city_name = formData.POST.get("city")
 
-    geocoding_url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city_name},+CA&key=AIzaSyCzvqhwadU4iM5BPMYAFzz14_4doR8069c'
-    response = requests.POST(geocoding_url).json()
+    geocoding_url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city_name},+CA&key={settings.GOOGLE_API_KEY}'
+    response = requests.get(geocoding_url).json()
     print(response)
-
 
     # Read API key securely
     #url = f'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m'
