@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from members.views import weather_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('members.urls'),)
+    path('', include('members.urls')),
+    path('weather_api/', weather_api),
 ]

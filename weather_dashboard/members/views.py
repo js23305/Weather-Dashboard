@@ -12,28 +12,21 @@ def weather_dashboard(request):
         return render(request, "index.html", {"weather_data": {"error": "API key file not found!"}})
 
     if request.method == 'POST':
-        city_name = request.Post.get("city")
-        url = f"http://api.openweathermap.org/data/2.5/weather?q={city_name}&units=metric&appid={api_key}"
-        response = requests.get(url).json()
+        weather_data = weather_api(request)
+        return render(request, "weather/index.html", {"weather_data": weather_data})
 
-        if response["cod"] == 200:
-            weather_data = {
-                "city": response["name"],
-                "temperature": response["main"]["temp"],
-                "humidity": response["main"]["humidity"],
-                "description": response["weather"][0]["description"],
-                "icon": response["weather"][0]["icon"]
-            }
-
-        else:
-            weather_data = {"error": "City not found!"}
-
-    return render(request, "weather/index.html", {"weather_data": weather_data})  
+    return render(request, "weather/index.html")
 
 def weather_api(formData):
     uid = formData.POST("uid")
     city_name = formData.POST("city")
+
+    geocoding_url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city_name},+CA&key=AIzaSyCzvqhwadU4iM5BPMYAFzz14_4doR8069c'
+    response = requests.POST(geocoding_url).json()
+    print(response)
+
+
     # Read API key securely
-    url = f'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m'
-    response = requests.post(url).json()
+    #url = f'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m'
+    #response = requests.post(url).json()
 

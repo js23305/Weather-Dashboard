@@ -1,7 +1,15 @@
-function weather_result(uid, city) {
+function weather_result(event) {
+    event.preventDefault();
+    let userInput = document.getElementById("userInput").value.trim();
+    if (userInput.length == "") {
+        alert("Please enter a city name");
+        return;
+    }
+    
     var formData = new FormData()
-    formData.append('uid', uid)
-    formData.append('city', city)
+    formData.append('city', userInput)
+    
+
     $.ajax(
         {
             url: "/weather_api/",
